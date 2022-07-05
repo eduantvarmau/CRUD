@@ -17,7 +17,7 @@ public class AirportController {
     private AirportService airportService;
 
 
-    @GetMapping("/listaaereopuertos")
+    @GetMapping("/airportList")
     public ResponseEntity<?> getAllAirport() {
         List<Airport> lista = airportService.getAllAirport();
         if(lista.isEmpty()){
@@ -26,23 +26,23 @@ public class AirportController {
         return ResponseEntity.ok().body(airportService.getAllAirport());
     }
 
-    @GetMapping("/detalleaereopuerto/{id}")
+    @GetMapping("/airportDetails/{id}")
     public ResponseEntity<Airport> getAirportById(@PathVariable long id) {
         return ResponseEntity.ok().body(airportService.getAirportById(id));
     }
 
-    @PostMapping("/crearaereopuerto")
+    @PostMapping("/airportCreate")
     public ResponseEntity<Airport> createAirport(@RequestBody Airport airport) {
         return ResponseEntity.ok().body(this.airportService.createAirport(airport));
     }
 
-    @PutMapping("/actualizaaereopuerto/{id}")
+    @PutMapping("/airportUpdate/{id}")
     public ResponseEntity<Airport> updateAirport(@PathVariable long id, @RequestBody Airport airport) {
         airport.setId(id);
         return ResponseEntity.ok().body(this.airportService.updateAirport(airport));
     }
 
-    @DeleteMapping("/eliminaaereopuerto/{id}")
+    @DeleteMapping("/airportDelete/{id}")
     public HttpStatus deleteAirport(@PathVariable long id) {
         this.airportService.deleteAirport(id);
         return HttpStatus.OK;

@@ -17,7 +17,7 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
-    @GetMapping("/listanacionalidades")
+    @GetMapping("/countryList")
     public ResponseEntity<?> getAllCountry() {
         List<Country> lista = countryService.getAllCountry();
         if(lista.isEmpty()){
@@ -26,23 +26,23 @@ public class CountryController {
         return ResponseEntity.ok().body(countryService.getAllCountry());
     }
 
-    @GetMapping("/detallenacionalidad/{id}")
+    @GetMapping("/countryDetails/{id}")
     public ResponseEntity<Country> getCountryById(@PathVariable long id) {
         return ResponseEntity.ok().body(countryService.getCountryById(id));
     }
 
-    @PostMapping("/crearnacionalidad")
+    @PostMapping("/countryCreate")
     public ResponseEntity<Country> createCountry(@RequestBody Country country) {
         return ResponseEntity.ok().body(this.countryService.createCountry(country));
     }
 
-    @PutMapping("/actualizanacionalidad/{id}")
+    @PutMapping("/countryUpdate/{id}")
     public ResponseEntity<Country> updateCountry(@PathVariable long id, @RequestBody Country country) {
         country.setId(id);
         return ResponseEntity.ok().body(this.countryService.updateCountry(country));
     }
 
-    @DeleteMapping("/eliminanacionalidad/{id}")
+    @DeleteMapping("/countryDelete/{id}")
     public HttpStatus deleteCountry(@PathVariable long id) {
         this.countryService.deleteCountry(id);
         return HttpStatus.OK;

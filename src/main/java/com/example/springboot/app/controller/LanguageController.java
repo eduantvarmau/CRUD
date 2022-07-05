@@ -17,7 +17,7 @@ public class LanguageController {
     @Autowired
     private LanguageService languageService;
 
-    @GetMapping("/listalenguajes")
+    @GetMapping("/languageList")
     public ResponseEntity<?> getAllLanguage() {
         List<Language> lista = languageService.getAllLanguage();
         if(lista.isEmpty()){
@@ -26,23 +26,23 @@ public class LanguageController {
         return ResponseEntity.ok().body(languageService.getAllLanguage());
     }
 
-    @GetMapping("/detallelenguaje/{id}")
+    @GetMapping("/languageDetails/{id}")
     public ResponseEntity<Language> getLanguageById(@PathVariable long id) {
         return ResponseEntity.ok().body(languageService.getLanguageById(id));
     }
 
-    @PostMapping("/crearlenguaje")
+    @PostMapping("/languageCreate")
     public ResponseEntity<Language> createLanguage(@RequestBody Language language) {
         return ResponseEntity.ok().body(this.languageService.createLanguage(language));
     }
 
-    @PutMapping("/actualizalenguaje/{id}")
+    @PutMapping("/languageUpdate/{id}")
     public ResponseEntity<Language> updateLanguage(@PathVariable long id, @RequestBody Language language) {
         language.setId(id);
         return ResponseEntity.ok().body(this.languageService.updateLanguage(language));
     }
 
-    @DeleteMapping("/eliminalenguaje/{id}")
+    @DeleteMapping("/languageDelete/{id}")
     public HttpStatus deleteLanguage(@PathVariable long id) {
         this.languageService.deleteLanguage(id);
         return HttpStatus.OK;
