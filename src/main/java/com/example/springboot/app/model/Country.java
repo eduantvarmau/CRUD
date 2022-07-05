@@ -51,5 +51,20 @@ public class Country {
         public void setName(String name) {
             this.name = name;
         }
+        public List<Airport> getAirports() {
+                return airports;
+        }
+
+        public void setAirports(List<Airport> airports) {
+                this.airports = airports;
+        }
+
+        public Employee getEmployee() {
+                return employee;
+        }
+
+        public void setEmployee(Employee employee) {
+                this.employee = employee;
+        }
 
 }

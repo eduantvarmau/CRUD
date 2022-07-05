@@ -43,4 +43,12 @@ public class Language {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Employee> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Employee> likes) {
+        this.likes = likes;
+    }
 }

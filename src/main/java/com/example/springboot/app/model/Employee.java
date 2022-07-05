@@ -53,4 +53,21 @@ public class Employee {
 	public void setFristname(String fristname) {
 		this.fristname = fristname;
 	}
+
+
+	public List<Language> getLikedLanguages() {
+		return likedLanguages;
+	}
+
+	public void setLikedLanguages(List<Language> likedLanguages) {
+		this.likedLanguages = likedLanguages;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
 }//class
