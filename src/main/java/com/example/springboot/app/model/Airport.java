@@ -3,7 +3,7 @@ package com.example.springboot.app.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "Airports")
+@Table(name= "airports")
 public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

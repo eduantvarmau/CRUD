@@ -1,11 +1,7 @@
 package com.example.springboot.app.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name= "employees")
@@ -20,6 +16,19 @@ public class Employee {
 	
 	@Column(name="fristname")
 	private String fristname;
+
+
+	@ManyToMany
+	@JoinTable(
+			name = "languages_like",
+			joinColumns = @JoinColumn(name = "employee_id"),
+			inverseJoinColumns = @JoinColumn(name = "language_id"))
+	private List<Language> likedLanguages;
+
+	@OneToOne
+	@JoinColumn(name = "country_id")
+	private Country country;
+
 
 	public long getId() {
 		return id;

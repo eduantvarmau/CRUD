@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/evaluacion")
+@RequestMapping("/country")
 public class CountryController {
 
     @Autowired

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/evaluacion")
+@RequestMapping("/language")
 public class LanguageController {
 
     @Autowired

@@ -1,8 +1,10 @@
 package com.example.springboot.app.model;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Entity
-@Table(name= "Countrys")
+@Table(name= "countrys")
 public class Country {
 
 
@@ -15,6 +17,16 @@ public class Country {
 
         @Column(name="name")
         private String name;
+
+        @OneToMany
+        @JoinColumn(name = "airport_id")
+        private List<Airport> airports;
+
+        @OneToOne
+        @JoinColumn(name = "employee_id")
+        private Employee employee;
+
+
 
         public long getId() {
             return id;

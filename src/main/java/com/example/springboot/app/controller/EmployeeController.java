@@ -12,7 +12,7 @@ import com.example.springboot.app.exception.Mensaje;
 import com.example.springboot.app.service.EmployeeService;
 
 @RestController
-@RequestMapping("/evaluacion")
+@RequestMapping("/employee")
 public class EmployeeController {
 
 	@Autowired
