@@ -24,7 +24,6 @@ public class AirportServiceImpl implements AirportService{
     @Override
     public Airport updateAirport(Airport airport) {
         Optional<Airport> airportDb = this.airportRepository.findById(airport.getId());
-
         if (airportDb.isPresent()) {
             Airport airportUpdate = airportDb.get();
             airportUpdate.setId(airport.getId());
@@ -43,7 +42,7 @@ public class AirportServiceImpl implements AirportService{
 
 
     @Override
-    public Airport getAirportById(long airportId) {
+    public Airport getAirportById(Integer airportId) {
 
         Optional<Airport> airportDb = this.airportRepository.findById(airportId);
 
@@ -55,7 +54,7 @@ public class AirportServiceImpl implements AirportService{
     }
 
     @Override
-    public void deleteAirport(long airportId) {
+    public void deleteAirport(Integer airportId) {
         Optional<Airport> airportDb = this.airportRepository.findById(airportId);
 
         if (airportDb.isPresent()) {

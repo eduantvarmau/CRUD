@@ -29,23 +29,23 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/employeeDetails/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable long id) {
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id) {
 		return ResponseEntity.ok().body(employeeService.getEmployeeById(id));
 	}
 
-	@PostMapping("/employeeCreate")
+	@PostMapping("/apiv1/clientes/add")
 	public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
 		return ResponseEntity.ok().body(this.employeeService.createEmployee(employee));
 	}
 
 	@PutMapping("/employeeUpdate/{id}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable long id, @RequestBody Employee employee) {
+	public ResponseEntity<Employee> updateEmployee(@PathVariable int id, @RequestBody Employee employee) {
 		employee.setId(id);
 		return ResponseEntity.ok().body(this.employeeService.updateEmployee(employee));
 	}
 
 	@DeleteMapping("/employeeDelete/{id}")
-	public HttpStatus deleteEmployee(@PathVariable long id) {
+	public HttpStatus deleteEmployee(@PathVariable int id) {
 		this.employeeService.deleteEmployee(id);
 		return HttpStatus.OK;
 	}

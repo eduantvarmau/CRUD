@@ -6,6 +6,6 @@ import com.example.springboot.app.model.Employee;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	// Con @Repository le indico los metodos principales select, create, update, delete
 }

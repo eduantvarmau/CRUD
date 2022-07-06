@@ -9,8 +9,8 @@ public interface EmployeeService {
 	Employee updateEmployee(Employee employee);
 	List<Employee> getAllEmployee();
 
-	Employee getEmployeeById(long employeeId);
-	void deleteEmployee(long id);
+	Employee getEmployeeById(Integer employeeId);
+	void deleteEmployee(Integer id);
 
 
 }//interface

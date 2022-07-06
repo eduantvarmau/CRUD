@@ -9,32 +9,33 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Integer id;
 	
 	@Column(name="surname")
 	private String surname;
 	
 	@Column(name="fristname")
-	private String fristname;
+	private String firstname;
 
 
-	@ManyToMany
+
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "languages_like",
 			joinColumns = @JoinColumn(name = "employee_id"),
 			inverseJoinColumns = @JoinColumn(name = "language_id"))
 	private List<Language> likedLanguages;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "country_id")
 	private Country country;
 
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -46,14 +47,13 @@ public class Employee {
 		this.surname = surname;
 	}
 
-	public String getFristname() {
-		return fristname;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFristname(String fristname) {
-		this.fristname = fristname;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-
 
 	public List<Language> getLikedLanguages() {
 		return likedLanguages;

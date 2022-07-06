@@ -45,7 +45,7 @@ public class LanguageServiceImpl implements LanguageService{
 
 
     @Override
-    public Language getLanguageById(long languageId) {
+    public Language getLanguageById(Integer languageId) {
 
         Optional<Language> languageDb = this.languageRepository.findById(languageId);
 
@@ -57,7 +57,7 @@ public class LanguageServiceImpl implements LanguageService{
     }
 
     @Override
-    public void deleteLanguage(long languageId) {
+    public void deleteLanguage(Integer languageId) {
         Optional<Language> languageDb = this.languageRepository.findById(languageId);
 
         if (languageDb.isPresent()) {

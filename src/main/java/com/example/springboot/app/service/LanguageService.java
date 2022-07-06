@@ -9,7 +9,7 @@ public interface LanguageService {
     Language updateLanguage(Language language);
     List<Language> getAllLanguage();
 
-    Language getLanguageById(long languageId);
-    void deleteLanguage(long id);
+    Language getLanguageById(Integer languageId);
+    void deleteLanguage(Integer id);
 
 }

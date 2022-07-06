@@ -31,8 +31,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if (employeeDb.isPresent()) {
 			Employee employeeUpdate = employeeDb.get();
 			employeeUpdate.setId(employee.getId());
+			employeeUpdate.setFirstname(employee.getFirstname());
 			employeeUpdate.setSurname(employee.getSurname());
-			employeeUpdate.setFristname(employee.getFristname());
 			employeeRepository.save(employeeUpdate);
 			return employeeUpdate;
 		} else {
@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 	@Override
-	public Employee getEmployeeById(long employeeId) {
+	public Employee getEmployeeById(Integer employeeId) {
 
 		Optional<Employee> employeeDb = this.employeeRepository.findById(employeeId);
 
@@ -59,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void deleteEmployee(long employeeId) {
+	public void deleteEmployee(Integer employeeId) {
 		Optional<Employee> employeeDb = this.employeeRepository.findById(employeeId);
 
 		if (employeeDb.isPresent()) {

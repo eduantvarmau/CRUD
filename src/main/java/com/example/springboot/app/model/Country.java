@@ -9,8 +9,8 @@ public class Country {
 
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private long id;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer country_id;
 
         @Column(name="code")
         private String code;
@@ -18,39 +18,38 @@ public class Country {
         @Column(name="name")
         private String name;
 
-        @OneToMany
+        @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
         @JoinColumn(name = "airport_id")
         private List<Airport> airports;
 
-        @OneToOne
-        @JoinColumn(name = "employee_id")
+        @OneToOne(mappedBy = "country", cascade = CascadeType.ALL)
         private Employee employee;
 
 
-
-        public long getId() {
-            return id;
+        public Integer getId() {
+                return country_id;
         }
 
-        public void setId(long id) {
-            this.id = id;
+        public void setId(Integer id) {
+                this.country_id = id;
         }
 
         public String getCode() {
-            return code;
+                return code;
         }
 
         public void setCode(String code) {
-            this.code = code;
+                this.code = code;
         }
 
         public String getName() {
-            return name;
+                return name;
         }
 
         public void setName(String name) {
-            this.name = name;
+                this.name = name;
         }
+
         public List<Airport> getAirports() {
                 return airports;
         }

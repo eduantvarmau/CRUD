@@ -45,7 +45,7 @@ public class CountryServiceImpl implements CountryService{
 
 
     @Override
-    public Country getCountryById(long countryId) {
+    public Country getCountryById(Integer countryId) {
 
         Optional<Country> countryDb = this.countryRepository.findById(countryId);
 
@@ -57,7 +57,7 @@ public class CountryServiceImpl implements CountryService{
     }
 
     @Override
-    public void deleteCountry(long countryId) {
+    public void deleteCountry(Integer countryId) {
         Optional<Country> countryDb = this.countryRepository.findById(countryId);
 
         if (countryDb.isPresent()) {

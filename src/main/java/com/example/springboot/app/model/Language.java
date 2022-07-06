@@ -9,7 +9,7 @@ public class Language {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private long id;
+        private Integer id;
 
         @Column(name="code")
         private String code;
@@ -17,14 +17,14 @@ public class Language {
         @Column(name="name")
         private String name;
 
-    @ManyToMany(mappedBy = "likedLanguages")
+    @ManyToMany(mappedBy = "likedLanguages", cascade = CascadeType.PERSIST)
     private List<Employee> likes;
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

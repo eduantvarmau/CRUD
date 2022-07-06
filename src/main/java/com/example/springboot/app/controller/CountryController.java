@@ -27,7 +27,7 @@ public class CountryController {
     }
 
     @GetMapping("/countryDetails/{id}")
-    public ResponseEntity<Country> getCountryById(@PathVariable long id) {
+    public ResponseEntity<Country> getCountryById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(countryService.getCountryById(id));
     }
 
@@ -37,13 +37,13 @@ public class CountryController {
     }
 
     @PutMapping("/countryUpdate/{id}")
-    public ResponseEntity<Country> updateCountry(@PathVariable long id, @RequestBody Country country) {
+    public ResponseEntity<Country> updateCountry(@PathVariable Integer id, @RequestBody Country country) {
         country.setId(id);
         return ResponseEntity.ok().body(this.countryService.updateCountry(country));
     }
 
     @DeleteMapping("/countryDelete/{id}")
-    public HttpStatus deleteCountry(@PathVariable long id) {
+    public HttpStatus deleteCountry(@PathVariable Integer id) {
         this.countryService.deleteCountry(id);
         return HttpStatus.OK;
     }
